@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: cogninexus-evaluation
+    runtime: python
+    plan: free
+    region: frankfurt
+    numInstances: 1
+    buildCommand: pip install -r requirements-production.txt && python -m unittest discover -s tests -q
+    startCommand: python production.py
+    healthCheckPath: /api/health
+    envVars:
+      - key: HOST
+        value: '0.0.0.0'
+      - key: COGNI_SECURE_COOKIE
+        value: '1'
+      - key: COGNI_DB
+        value: /tmp/cogninexus/cogni.sqlite
+      - key: COGNI_OWNER_EMAIL
+        sync: false
+      - key: COGNI_OWNER_PASSWORD
+        sync: false
