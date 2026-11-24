@@ -1,0 +1,2 @@
+# Optional WSGI server. Resolve and review dependency versions before public deployment.
+waitress>=3.0.2,<4

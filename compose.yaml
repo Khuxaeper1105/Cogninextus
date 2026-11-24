@@ -1,0 +1,12 @@
+services:
+  cogninexus:
+    build: .
+    ports:
+      - '127.0.0.1:8000:8000'
+    environment:
+      COGNI_OWNER_EMAIL: ${COGNI_OWNER_EMAIL:-}
+      COGNI_OWNER_PASSWORD: ${COGNI_OWNER_PASSWORD:-}
+    volumes:
+      - cognidata:/app/data
+volumes:
+  cognidata:

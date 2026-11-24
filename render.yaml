@@ -5,8 +5,8 @@ services:
     plan: free
     region: frankfurt
     numInstances: 1
-    buildCommand: python -m zipfile -e CogniNexus-V4-Render-Free.zip .cogninexus && cd .cogninexus && pip install -r requirements-production.txt && python -m unittest discover -s tests -q
-    startCommand: cd .cogninexus && python production.py
+    buildCommand: pip install -r requirements-production.txt && python -m unittest discover -s tests -q
+    startCommand: python production.py
     healthCheckPath: /api/health
     envVars:
       - key: HOST
